@@ -9,12 +9,13 @@ Use the `ResizeObserver` API on the `ref` dimensions in our chart:
 const dimensions = useResizeObserver(wrapperRef).
 `
 
-Use hooks to watch for changes to dimensions and re-render as necessary.
+Watch for changes to dimensions and re-render as necessary.
 
     useEffect(() => {
     const svg = d3.select(svgRef.current);
     // use resized dimensions
-    const { width, height } = dimensions || wrapperRef.current.getBoundingClientRect();
-    
-    // do a bunch of D3 stuff here    
-  }, [data, dimensions])
+    const { width, height } = dimensions || wrapperRef.current.getBoundingClientRect(); 
+    // do a bunch of D3 stuff here
+    // ...
+    }, [data, dimensions])
+  
