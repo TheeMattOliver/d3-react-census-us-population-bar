@@ -9,6 +9,7 @@ function PopulationBarChart({ data, property }) {
   const dimensions = useResizeObserver(wrapperRef);
 
   useEffect(() => {
+    console.log('Render, dimensions: ', dimensions)
     const svg = d3.select(svgRef.current);
     // use resized dimensions
     const { width, height } = dimensions || wrapperRef.current.getBoundingClientRect();

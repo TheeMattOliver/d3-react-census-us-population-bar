@@ -19,3 +19,11 @@ Watch for changes to dimensions and re-render as necessary.
     // ...
     }, [data, dimensions])
   
+Use `flex`:
+
+```
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  ```
