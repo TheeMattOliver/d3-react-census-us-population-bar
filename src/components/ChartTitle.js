@@ -7,7 +7,7 @@ const ChartTitle = (props) => {
 
 	const index = new Map(props.data.map((d, i) => [d, i]));
   let sums = [...props.data].map(d => Array.from(ageVariables, V => sum(V, v => d[index.get(v)])))
-  console.log('sums: ', sums)
+  // console.log('sums: ', sums)
   // const sumArray = (array) => {
   //  const newArray = [];
   //  array.forEach(sub => {
