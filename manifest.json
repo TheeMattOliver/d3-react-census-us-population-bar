@@ -1,0 +1,8 @@
+{
+  "short_name": "D3 React",
+  "name": "D3 React Hooks Starter",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
