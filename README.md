@@ -1,15 +1,19 @@
 # US Population by State w/D3 + React Hooks
 
-https://theemattoliver.github.io/d3-react-census-us-population-bar/
+Deployed: https://theemattoliver.github.io/d3-react-census-us-population-bar/
 
-Use the `ResizeObserver` API on the `ref` dimensions in our chart: 
+
+![US Population by State](https://media.giphy.com/media/b7oOvLcLr9e3IAaVJr/giphy.gif)
+
+
+Uses the `ResizeObserver` API on the `ref` dimensions: 
 
 
 `const wrapperRef = useRef();
 const dimensions = useResizeObserver(wrapperRef).
 `
 
-Watch for changes to dimensions and re-render as necessary.
+Watches for changes to dimensions and re-renders as necessary.
 
     useEffect(() => {
     const svg = d3.select(svgRef.current);
@@ -19,7 +23,7 @@ Watch for changes to dimensions and re-render as necessary.
     // ...
     }, [data, dimensions])
   
-Use `flex`:
+Uses `flex` for the svg wrapper:
 
 ```
   display: flex;

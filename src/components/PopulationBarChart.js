@@ -3,6 +3,7 @@ import * as d3 from 'd3';
 import useResizeObserver from '../hooks/useResizeObserver';
 
 function PopulationBarChart({ data, property }) {
+  console.log('here is the data the chart wants: ', data)
   const svgRef = useRef();
   const wrapperRef = useRef();
   // get current dimensions of the element we give it
@@ -27,10 +28,10 @@ function PopulationBarChart({ data, property }) {
       .range([margin.left, innerWidth - margin.right])
 
     svg.append("g")
-        .attr("class", "x-axis");
+      .attr("class", "x-axis");
 
     svg.append("g")
-        .attr("class", "y-axis");
+      .attr("class", "y-axis");
 
     svg.select(".x-axis")
       .attr("transform", `translate(0,${innerHeight - margin.bottom})`)
@@ -42,41 +43,41 @@ function PopulationBarChart({ data, property }) {
       .call(g => g.transition().call(d3.axisLeft(yScale).tickSizeOuter(0)));
 
     svg.append("g")
-        .attr("fill", "steelblue")
+      .attr("fill", "steelblue")
       .selectAll("rect")
       .data(data)
       .enter().append("rect")
-        .attr("class", "bar")
-        .attr("width", 0);
+      .attr("class", "bar")
+      .attr("width", 0);
 
     svg.append("g")
-        .attr("fill", "white")
-        .attr("text-anchor", "end")
-        .style("font", "12px sans-serif")
+      .attr("fill", "white")
+      .attr("text-anchor", "end")
+      .style("font", "12px sans-serif")
       .selectAll("text")
       .data(data)
       .enter().append("text")
-        .attr("class", "label")
-        .attr("dy", "0.35em")
-        .attr("x", xScale(0) - 4);
+      .attr("class", "label")
+      .attr("dy", "0.35em")
+      .attr("x", xScale(0) - 4);
 
     svg.selectAll(".bar")
       .data(data, d => d.name)
-        .attr("x", xScale(0))
-        .attr("y", d => yScale(d.name))
-        .attr("height", yScale.bandwidth())
+      .attr("x", xScale(0))
+      .attr("y", d => yScale(d.name))
+      .attr("height", yScale.bandwidth())
       .transition()
-        .delay((d, i) => i * 20)
-        .attr("width", d => xScale(d.value) - xScale(0));
+      .delay((d, i) => i * 20)
+      .attr("width", d => xScale(d.value) - xScale(0));
 
     svg.selectAll(".label")
       .data(data, d => d.name)
-        .attr("y", d => yScale(d.name) + yScale.bandwidth() / 2)
-        .text(d => d.value.toLocaleString())
+      .attr("y", d => yScale(d.name) + yScale.bandwidth() / 2)
+      .text(d => d.value.toLocaleString())
       .transition()
-        .delay((d, i) => i * 20)
-        .attr("x", d => xScale(d.value) - 4);
-        
+      .delay((d, i) => i * 20)
+      .attr("x", d => xScale(d.value) - 4);
+
   }, [data, dimensions, property])
 
   const svgStyles = {
@@ -84,11 +85,11 @@ function PopulationBarChart({ data, property }) {
     "marginTop": "5px"
   }
 
-  return(
-    <div ref={wrapperRef} style={{ marginBottom: '2rem '}}>
+  return (
+    <div ref={wrapperRef} style={{ marginBottom: '2rem ' }}>
       <svg ref={svgRef} style={svgStyles}></svg>
     </div>
-    )
+  )
 
 }
 
