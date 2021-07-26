@@ -1,6 +1,6 @@
 # US Population by State w/D3 + React Hooks
 
-**Using the Census API with D3 and React hooks.**
+**A Mike Bostock D3 and Census API classic, implemented with React hooks.**
 
 Deployed: https://theemattoliver.github.io/d3-react-census-us-population-bar/
 

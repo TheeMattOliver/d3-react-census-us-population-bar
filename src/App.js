@@ -32,7 +32,6 @@ function App() {
 				setCensusData(censusData)
 			})
 	}, [selectedState, geography])
-
 	// Array.from( states ).map(([key, value]) => ({ key, value })); 
 
 	let statesArr = [...states].map(value => value[1]);
